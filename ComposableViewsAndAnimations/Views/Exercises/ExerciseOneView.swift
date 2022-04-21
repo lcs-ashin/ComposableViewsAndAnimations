@@ -16,7 +16,16 @@ struct ExerciseOneView: View {
     @Binding var showThisView: Bool
         
     // Whether to apply the animation
-    @State private var useAnimation = false
+    @State private var useAnimation = true
+    
+    // Controls the size of the circle
+    @State private var scaleFactor: CGFloat = 1.0
+    
+    // Controls the colour of the circle
+    @State private var hue: Color = .blue
+    
+    // Controls the position of the circle
+    @State private var offset: CGFloat = -200.0
 
     // MARK: Computed properties
 
@@ -27,8 +36,28 @@ struct ExerciseOneView: View {
             VStack {
 
                 Circle()
-                    .frame(width: 200, height: 200)
-                    .foregroundColor(.blue)
+                    .foregroundColor(hue)
+                    .scaleEffect(scaleFactor)
+                    .offset(x: 0, y: offset)
+                    .onTapGesture {
+                        if scaleFactor > 0.2 {
+                            scaleFactor -= 0.1
+                            hue = Color(hue: Double.random(in: 1...360),
+                                        saturation: Double.random(in: 0.2...0.8),
+                                        brightness: 0.8)
+                        } else {
+                            scaleFactor = 1
+                            hue = Color(hue: Double.random(in: 1...360),
+                                        saturation: Double.random(in: 0.5...1.0),
+                                        brightness: 0.8)
+                        }
+                        
+                        withAnimation(.interpolatingSpring(mass: 3.0, stiffness: 1.0, damping: 0.75, initialVelocity: 20)) {
+                            offset += 50
+                        }
+                    }
+                    .animation(useAnimation ? .interpolatingSpring(stiffness: 5, damping: 3) : .none)
+                    .animation(useAnimation ? .easeIn(duration: 1) : .none)
                 
             }
             .navigationTitle("Exercise 1")
