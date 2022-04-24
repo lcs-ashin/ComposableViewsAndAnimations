@@ -19,10 +19,16 @@ struct ExerciseThreeView: View {
     @State private var typeFace: String = "Helvetica-Neue"
 
     // Whether to apply the animation
-    @State private var useAnimation = false
+    @State private var useAnimation = true
     
     // How much to rotate the text
     @State private var rotationAmount = 0.0
+    
+    // Controls the position of the capsule
+    @State private var offset: CGFloat = 0.0
+    
+    // Controls the hue of the text
+    @State private var hue: Color = .black
 
     // MARK: Computed properties
 
@@ -56,6 +62,7 @@ struct ExerciseThreeView: View {
                     .rotation3DEffect(.degrees(rotationAmount), axis: (x: 0,
                                                                        y: 1,
                                                                        z: 0))
+                    .foregroundColor(hue)
                     .onTapGesture {
                         withAnimation(.interpolatingSpring(stiffness: 5, damping: 1)) {
                             rotationAmount += 360.0
@@ -67,7 +74,17 @@ struct ExerciseThreeView: View {
                 
                 Capsule()
                     .frame(width: 200, height: 100)
-                    .foregroundColor(.red)
+                    .foregroundColor(hue)
+                    .offset(x: 0, y: offset)
+                    .onTapGesture {
+                        if offset < -300.0 {
+                            offset += 600.0
+                        } else {
+                            offset -= 70.0
+                        }
+                        hue = Color(hue: Double.random(in: 1...360) / 360.0, saturation: 1, brightness: 1)
+                    }
+                    .animation(useAnimation ? .interpolatingSpring(stiffness: 5, damping: 3) : .none)
                 
             }
             .navigationTitle("Exercise 3")
