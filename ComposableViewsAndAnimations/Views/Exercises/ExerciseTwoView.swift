@@ -16,7 +16,10 @@ struct ExerciseTwoView: View {
     @Binding var showThisView: Bool
         
     // Whether to apply the animation
-    @State private var useAnimation = false
+    @State private var useAnimation = true
+    
+    // Controls the position of the circle
+    @State private var offset: CGFloat = -200.0
 
     // MARK: Computed properties
 
@@ -29,6 +32,15 @@ struct ExerciseTwoView: View {
                 Circle()
                     .frame(width: 200, height: 200)
                     .foregroundColor(.blue)
+                    .offset(x: 0, y: offset)
+                    .onTapGesture {
+                        withAnimation(.interpolatingSpring(mass: 1.0,
+                                                           stiffness: 1.0,
+                                                           damping: 0.75,
+                                                           initialVelocity: 10)) {
+                            offset += 50
+                        }
+                    }
                 
             }
             .navigationTitle("Exercise 2")

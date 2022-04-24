@@ -45,16 +45,16 @@ struct ExerciseOneView: View {
                             hue = Color(hue: Double.random(in: 1...360),
                                         saturation: Double.random(in: 0.2...0.8),
                                         brightness: 0.8)
+                            offset += 50
+                            
                         } else {
                             scaleFactor = 1
                             hue = Color(hue: Double.random(in: 1...360),
                                         saturation: Double.random(in: 0.5...1.0),
                                         brightness: 0.8)
+                            offset -= 400
                         }
                         
-                        withAnimation(.interpolatingSpring(mass: 3.0, stiffness: 1.0, damping: 0.75, initialVelocity: 20)) {
-                            offset += 50
-                        }
                     }
                     .animation(useAnimation ? .interpolatingSpring(stiffness: 5, damping: 3) : .none)
                     .animation(useAnimation ? .easeIn(duration: 1) : .none)
