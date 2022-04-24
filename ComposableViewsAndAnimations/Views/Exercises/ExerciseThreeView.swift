@@ -68,7 +68,9 @@ struct ExerciseThreeView: View {
                             rotationAmount += 360.0
                         }
                         
-                        typeFace = ExerciseThreeView.fontNames.randomElement()!
+                        withAnimation(.easeOut(duration: 3)) {
+                            typeFace = ExerciseThreeView.fontNames.randomElement()!
+                        }
                         
                     }
                 
