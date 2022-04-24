@@ -60,6 +60,9 @@ struct ExerciseThreeView: View {
                         withAnimation(.interpolatingSpring(stiffness: 5, damping: 1)) {
                             rotationAmount += 360.0
                         }
+                        
+                        typeFace = ExerciseThreeView.fontNames.randomElement()!
+                        
                     }
                 
                 Capsule()
