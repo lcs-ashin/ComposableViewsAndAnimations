@@ -32,6 +32,10 @@ struct CustomComposableView: View {
         
         VStack {
             
+            Text("Loading...")
+                .font(Font.custom("SF Compact", size: 25.0))
+                .foregroundColor(circleOneColor)
+            
             Circle()
                 .frame(width: 20, height: 20)
                 .foregroundColor(circleOneColor)
