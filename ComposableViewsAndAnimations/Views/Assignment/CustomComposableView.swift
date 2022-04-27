@@ -10,34 +10,61 @@ import SwiftUI
 struct CustomComposableView: View {
     
     // MARK: Stored Properties
-    // Control the horizontal offset
-    @State private var offset = 0.0
+    // Control the horizontal offset - 1st circle
+    @State private var offsetX = 20.0
+    
+    // Control the horizontal offset - 2nd circle
+    @State private var offsetA = -20.0
+    
+    // Control the colour - 1st circle
+    @State private var circleOneColor: Color = .yellow
+    
+    // Control the colour - 2nd circle
+    @State private var circleTwoColor: Color = .orange
     
     // Control the rotation angle
     @State private var currentRotationAngle = Angle.degrees(0)
     
+    let timer = Timer.publish(every: 2.5, on: .main, in: .common).autoconnect()
+
     // MARK: Computed Properties
     var body: some View {
-        ZStack {
+        
+        VStack {
+            
             Circle()
-                .frame(width: 100, height: 100)
+                .frame(width: 20, height: 20)
+                .foregroundColor(circleOneColor)
+                .offset(x: offsetX, y: 0)
+                .onReceive(timer) { input in
+                    
+                    offsetX = 100.0
+                    
+                    circleOneColor = .orange
+                    
+                    // Stop the timer
+                    timer.upstream.connect().cancel()
+                }
             
-            Text("OK!")
-                .foregroundColor(.white)
-        }
-        .rotationEffect(currentRotationAngle, anchor: .center)
-        .offset(x: offset, y: 0)
-        .onTapGesture {
-            // Move the circle to the right
-            offset = 100.0
-            
-            // Rotate a full revolution
-            currentRotationAngle = .degrees(360)
+            Circle()
+                .frame(width: 20, height: 20)
+                .foregroundColor(circleTwoColor)
+                .offset(x: offsetA, y: 0.0)
+                .onReceive(timer) { input in
+
+                    offsetA = -100.0
+
+                    circleTwoColor = .red
+
+                    // Stop the timer
+                    timer.upstream.connect().cancel()
+                }
+                
         }
         .animation(
-            Animation.easeOut(duration: 1.5)
+            Animation.easeOut(duration: 1.0)
+                .repeatForever(autoreverses: true)
         )
-
     }
 }
 
