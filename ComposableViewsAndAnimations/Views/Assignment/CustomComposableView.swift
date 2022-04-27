@@ -11,10 +11,10 @@ struct CustomComposableView: View {
     
     // MARK: Stored Properties
     // Control the horizontal offset - 1st circle
-    @State private var offsetX = 20.0
+    @State private var offsetX = 24.0
     
     // Control the horizontal offset - 2nd circle
-    @State private var offsetA = -20.0
+    @State private var offsetA = -24.0
     
     // Control the colour - 1st circle
     @State private var circleOneColor: Color = .yellow
@@ -25,7 +25,7 @@ struct CustomComposableView: View {
     // Control the rotation angle
     @State private var currentRotationAngle = Angle.degrees(0)
     
-    let timer = Timer.publish(every: 2.5, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 
     // MARK: Computed Properties
     var body: some View {
@@ -33,42 +33,53 @@ struct CustomComposableView: View {
         VStack {
             
             Text("Loading...")
-                .font(Font.custom("SF Compact", size: 25.0))
-                .foregroundColor(circleOneColor)
+                .font(Font.custom("SF Compact", size: 25.0).bold())
+                .foregroundColor(.orange)
             
-            Circle()
-                .frame(width: 20, height: 20)
-                .foregroundColor(circleOneColor)
-                .offset(x: offsetX, y: 0)
-                .onReceive(timer) { input in
-                    
-                    offsetX = 100.0
-                    
-                    circleOneColor = .orange
-                    
-                    // Stop the timer
-                    timer.upstream.connect().cancel()
-                }
-            
-            Circle()
-                .frame(width: 20, height: 20)
-                .foregroundColor(circleTwoColor)
-                .offset(x: offsetA, y: 0.0)
-                .onReceive(timer) { input in
-
-                    offsetA = -100.0
-
-                    circleTwoColor = .red
-
-                    // Stop the timer
-                    timer.upstream.connect().cancel()
-                }
+            HStack {
+                // Circle on the right
+                Circle()
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(circleOneColor)
+                    .offset(x: offsetX, y: 0.0)
+                    .onReceive(timer) { input in
+                        
+                        withAnimation(
+                            Animation.easeOut(duration: 1.0)
+                                .repeatForever(autoreverses: true)
+                            
+                        ) {
+                            offsetX = 100.0
+                            
+                            circleOneColor = .orange
+                        }
+                        
+                        // Stop the timer
+                        timer.upstream.connect().cancel()
+                    }
                 
+                // Circle on the left
+                Circle()
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(circleTwoColor)
+                    .offset(x: offsetA, y: 0.0)
+                    .onReceive(timer) { input in
+                        withAnimation(
+                            Animation
+                                .easeOut(duration: 1.0)
+                                .repeatForever(autoreverses: true)
+                                .delay(2.0)
+                        ) {
+                            offsetA = -100.0
+
+                            circleTwoColor = .red
+                        }
+                    
+                        // Stop the timer
+                        timer.upstream.connect().cancel()
+                    }
+            }
         }
-        .animation(
-            Animation.easeOut(duration: 1.0)
-                .repeatForever(autoreverses: true)
-        )
     }
 }
 
