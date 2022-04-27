@@ -31,6 +31,7 @@
 		81D2F47925E5855600ACF089 /* ExerciseTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2F47825E5855600ACF089 /* ExerciseTwoView.swift */; };
 		81D2F47C25E5856E00ACF089 /* ExerciseThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2F47B25E5856E00ACF089 /* ExerciseThreeView.swift */; };
 		81D2F48325E7199300ACF089 /* TutorialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2F48225E7199300ACF089 /* TutorialsView.swift */; };
+		8AC3FC9328198F150054EC25 /* CustomComposableTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3FC9228198F150054EC25 /* CustomComposableTwoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		81D2F48225E7199300ACF089 /* TutorialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsView.swift; sourceTree = "<group>"; };
 		81D2F48A25E71FA400ACF089 /* CompletionMeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionMeterView.swift; sourceTree = "<group>"; };
 		81D2F48B25E71FA400ACF089 /* CompletionMeterDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionMeterDescriptionView.swift; sourceTree = "<group>"; };
+		8AC3FC9228198F150054EC25 /* CustomComposableTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComposableTwoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			children = (
 				81331FB625E736AA00CFDB02 /* CustomComposableDescriptionView.swift */,
 				81331FBA25E736B600CFDB02 /* CustomComposableView.swift */,
+				8AC3FC9228198F150054EC25 /* CustomComposableTwoView.swift */,
 			);
 			path = Assignment;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				0E84E4E825E547660052BC69 /* IAExampleOneView.swift in Sources */,
 				0E84E4F625E598470052BC69 /* TimingView.swift in Sources */,
 				81D2F47C25E5856E00ACF089 /* ExerciseThreeView.swift in Sources */,
+				8AC3FC9328198F150054EC25 /* CustomComposableTwoView.swift in Sources */,
 				0E8E8AF225E5434100012516 /* ComposableViewsAndAnimationsApp.swift in Sources */,
 				81331FB225E72A5A00CFDB02 /* EncouragementView.swift in Sources */,
 				81D2F45B25E5770300ACF089 /* IAExampleTwoView.swift in Sources */,
