@@ -45,10 +45,16 @@ struct CustomComposableTwoView: View {
                     
                     withAnimation(
                         Animation
-                            .default
+                            .easeInOut(duration: 0.5)
                             .repeatCount(2, autoreverses: true)
                     ) {
-                        heartSize += 0.3
+                        heartSize += 0.2
+                        
+                        Task {
+                            try await Task.sleep(nanoseconds: 0_800_000_000)
+                            heartSize = 1.0
+                        }
+                        
                     }
                 }
         }
