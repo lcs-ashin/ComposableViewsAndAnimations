@@ -15,6 +15,9 @@ struct CustomComposableTwoView: View {
     // Controls the size of the heart
     @State var heartSize: CGFloat = 1.0
     
+    // Controls the size of the lines around heart (sun image)
+    @State var circleSize: CGFloat = 1.2
+    
     // Controls the opacity of the heart
     @State var heartOpacity: CGFloat = 0.0
     
@@ -29,6 +32,14 @@ struct CustomComposableTwoView: View {
                 .scaleEffect(heartSize)
                 .opacity(heartOpacity)
             
+            // Lines around heart effect
+            Image(systemName: "sun.max")
+                .font(.system(size: 100))
+                .offset(x: 0, y: -2.5)
+                .foregroundColor(.purple)
+                .scaleEffect(circleSize)
+                .opacity(heartOpacity)
+            
             // Pink heart
             Image(systemName: pinkHeart)
                 .font(.system(size: 100))
@@ -36,7 +47,7 @@ struct CustomComposableTwoView: View {
                 .onTapGesture {
                     withAnimation(
                         Animation
-                            .easeIn
+                            .easeIn(duration: 0.3)
                     ) {
                         pinkHeart = "heart.fill"
                         
@@ -45,14 +56,16 @@ struct CustomComposableTwoView: View {
                     
                     withAnimation(
                         Animation
-                            .easeInOut(duration: 0.5)
+                            .easeInOut(duration: 0.3)
                             .repeatCount(2, autoreverses: true)
                     ) {
                         heartSize += 0.2
+                        circleSize += 0.4
                         
                         Task {
-                            try await Task.sleep(nanoseconds: 0_800_000_000)
+                            try await Task.sleep(nanoseconds: 0_550_000_000)
                             heartSize = 1.0
+                            circleSize = 1.0
                             heartOpacity = 0.0
                         }
                         
