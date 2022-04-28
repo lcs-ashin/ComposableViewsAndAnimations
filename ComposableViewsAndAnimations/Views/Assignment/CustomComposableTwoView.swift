@@ -13,7 +13,7 @@ struct CustomComposableTwoView: View {
     @State var pinkHeart: String = "heart"
     
     // Controls the size of the heart
-    @State var heartSize: CGFloat = 20
+    @State var heartSize: CGFloat = 1.0
     
     // MARK: Computed Properties
     var body: some View {
@@ -23,17 +23,27 @@ struct CustomComposableTwoView: View {
             Image(systemName: "heart.fill")
                 .font(.system(size: 100))
                 .foregroundColor(.purple)
+                .scaleEffect(heartSize)
             
             // Pink heart
             Image(systemName: pinkHeart)
                 .font(.system(size: 100))
                 .foregroundColor(.pink)
-                .animation(
-                    Animation
-                        .easeIn
-                )
                 .onTapGesture {
-                    pinkHeart = "heart.fill"
+                    withAnimation(
+                        Animation
+                            .easeIn
+                    ) {
+                        pinkHeart = "heart.fill"
+                    }
+                    
+                    withAnimation(
+                        Animation
+                            .default
+                            .repeatCount(2, autoreverses: true)
+                    ) {
+                        heartSize += 0.3
+                    }
                 }
         }
     }
