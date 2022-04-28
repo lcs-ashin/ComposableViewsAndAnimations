@@ -83,12 +83,12 @@ struct CustomComposableDescriptionView: View {
             List {
                 NavigationLink(destination: CustomComposableView()) {
                     SimpleListItemView(title: "My Composable View 1",
-                                       caption: "A brief description of my view")
+                                       caption: "A loading animation")
                 }
                 
                 NavigationLink(destination: CustomComposableTwoView(effectColour: chooseColor)) {
                     SimpleListItemView(title: "My Composable View 2",
-                                       caption: "A brief description of my view")
+                                       caption: "A heart button with an effect")
                 }
             }
             
