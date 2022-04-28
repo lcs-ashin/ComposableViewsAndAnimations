@@ -15,6 +15,9 @@ struct CustomComposableTwoView: View {
     // Controls the size of the heart
     @State var heartSize: CGFloat = 1.0
     
+    // Controls the opacity of the heart
+    @State var heartOpacity: CGFloat = 0.0
+    
     // MARK: Computed Properties
     var body: some View {
         
@@ -24,6 +27,7 @@ struct CustomComposableTwoView: View {
                 .font(.system(size: 100))
                 .foregroundColor(.purple)
                 .scaleEffect(heartSize)
+                .opacity(heartOpacity)
             
             // Pink heart
             Image(systemName: pinkHeart)
@@ -35,6 +39,8 @@ struct CustomComposableTwoView: View {
                             .easeIn
                     ) {
                         pinkHeart = "heart.fill"
+                        
+                        heartOpacity = 1.0
                     }
                     
                     withAnimation(
