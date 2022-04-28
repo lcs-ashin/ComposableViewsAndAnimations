@@ -53,6 +53,7 @@ struct CustomComposableTwoView: View {
                         Task {
                             try await Task.sleep(nanoseconds: 0_800_000_000)
                             heartSize = 1.0
+                            heartOpacity = 0.0
                         }
                         
                     }
