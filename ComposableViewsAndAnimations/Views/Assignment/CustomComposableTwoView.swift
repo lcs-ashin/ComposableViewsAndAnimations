@@ -12,6 +12,9 @@ struct CustomComposableTwoView: View {
     // Controls the colour of the heart (filled / not filled)
     @State var pinkHeart: String = "heart"
     
+    // Controls the colour of the effect
+    let effectColour: Color 
+    
     // Controls the size of the heart
     @State var heartSize: CGFloat = 1.0
     
@@ -28,15 +31,15 @@ struct CustomComposableTwoView: View {
             // Purple heart
             Image(systemName: "heart.fill")
                 .font(.system(size: 100))
-                .foregroundColor(.purple)
+                .foregroundColor(effectColour)
                 .scaleEffect(heartSize)
                 .opacity(heartOpacity)
             
             // Lines around heart effect
             Image(systemName: "sun.max")
                 .font(.system(size: 100))
-                .offset(x: 0, y: -2.5)
-                .foregroundColor(.purple)
+                .offset(x: 0, y: -1.5)
+                .foregroundColor(effectColour)
                 .scaleEffect(circleSize)
                 .opacity(heartOpacity)
             
@@ -77,6 +80,6 @@ struct CustomComposableTwoView: View {
 
 struct CustomComposableTwoView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomComposableTwoView()
+        CustomComposableTwoView(effectColour: .purple)
     }
 }

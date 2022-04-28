@@ -10,7 +10,7 @@ import SwiftUI
 struct CustomComposableDescriptionView: View {
     
     // MARK: Stored properties
-    @State private var phrase: String = ""
+    @State private var chooseColor: Color = .purple
     
     // MARK: Computed properties
     var body: some View {
@@ -25,12 +25,57 @@ struct CustomComposableDescriptionView: View {
                     .padding(.top)
                 
                 Text("""
-                    Replace this with a description of how to use this view.
-
-                    If the view accepts a parameter, provide a control to enter the input below.
+                    My Composable View 1:
+                    This is an animation that can be used in a loading page.
+                    
+                    My Composable View 2:
+                    This is a heart button animation that can be used in social media.
+                    Tap a colour you want for the effect.
                     """)
                 
-                TextField("Enter an input value", text: $phrase)
+                HStack {
+                    Spacer()
+                    // Choose purple effect
+                    Image(systemName: "heart")
+                        .font(Font.system(size: 40))
+                        .foregroundColor(.purple)
+                        .onTapGesture {
+                            chooseColor = .purple
+                        }
+                    
+                    // Choose orange effect
+                    Image(systemName: "heart")
+                        .font(Font.system(size: 40))
+                        .foregroundColor(.orange)
+                        .onTapGesture {
+                            chooseColor = .orange
+                        }
+                    
+                    // Choose yellow effect
+                    Image(systemName: "heart")
+                        .font(Font.system(size: 40))
+                        .foregroundColor(.yellow)
+                        .onTapGesture {
+                            chooseColor = .yellow
+                        }
+                    
+                    // Choose green effect
+                    Image(systemName: "heart")
+                        .font(Font.system(size: 40))
+                        .foregroundColor(.green)
+                        .onTapGesture {
+                            chooseColor = .green
+                        }
+                    
+                    // Choose blue effect
+                    Image(systemName: "heart")
+                        .font(Font.system(size: 40))
+                        .foregroundColor(.blue)
+                        .onTapGesture {
+                            chooseColor = .blue
+                        }
+                    Spacer()
+                }
                 
             }
             .padding(.bottom)
@@ -41,7 +86,7 @@ struct CustomComposableDescriptionView: View {
                                        caption: "A brief description of my view")
                 }
                 
-                NavigationLink(destination: CustomComposableTwoView()) {
+                NavigationLink(destination: CustomComposableTwoView(effectColour: chooseColor)) {
                     SimpleListItemView(title: "My Composable View 2",
                                        caption: "A brief description of my view")
                 }
