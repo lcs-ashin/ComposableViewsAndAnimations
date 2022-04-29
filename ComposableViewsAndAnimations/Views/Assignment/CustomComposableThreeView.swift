@@ -32,7 +32,7 @@ struct CustomComposableThreeView: View {
                 Image(systemName: "cloud.fill")
                     .font(.system(size: 150))
                     .foregroundColor(.secondary)
-                    .offset(x: offsetXOne, y: 0)
+                    .offset(x: offsetXOne, y: -85)
                     .opacity(cloudOpacity)
                     .onReceive(timer) { input in
                         withAnimation(
@@ -49,7 +49,7 @@ struct CustomComposableThreeView: View {
                 Image(systemName: "cloud.fill")
                     .font(.system(size: 110))
                     .foregroundColor(.secondary)
-                    .offset(x: offsetXTwo, y: 0)
+                    .offset(x: offsetXTwo, y: -70)
                     .onReceive(timer) { input in
                         withAnimation(
                             Animation
