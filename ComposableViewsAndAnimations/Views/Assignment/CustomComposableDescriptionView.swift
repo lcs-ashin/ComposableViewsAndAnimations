@@ -162,6 +162,11 @@ struct CustomComposableDescriptionView: View {
                     SimpleListItemView(title: "My Composable View 2",
                                        caption: "A heart button with an effect")
                 }
+                
+                NavigationLink(destination: CustomComposableThreeView()) {
+                    SimpleListItemView(title: "My Composable View 3",
+                                       caption: ".....")
+                }
             }
             
         }

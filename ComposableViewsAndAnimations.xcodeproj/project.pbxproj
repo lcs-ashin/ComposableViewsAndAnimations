@@ -31,6 +31,7 @@
 		81D2F47925E5855600ACF089 /* ExerciseTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2F47825E5855600ACF089 /* ExerciseTwoView.swift */; };
 		81D2F47C25E5856E00ACF089 /* ExerciseThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2F47B25E5856E00ACF089 /* ExerciseThreeView.swift */; };
 		81D2F48325E7199300ACF089 /* TutorialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2F48225E7199300ACF089 /* TutorialsView.swift */; };
+		8ABB193C281C39A40017B816 /* CustomComposableThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB193B281C39A40017B816 /* CustomComposableThreeView.swift */; };
 		8AC3FC9328198F150054EC25 /* CustomComposableTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC3FC9228198F150054EC25 /* CustomComposableTwoView.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		81D2F48225E7199300ACF089 /* TutorialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsView.swift; sourceTree = "<group>"; };
 		81D2F48A25E71FA400ACF089 /* CompletionMeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionMeterView.swift; sourceTree = "<group>"; };
 		81D2F48B25E71FA400ACF089 /* CompletionMeterDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionMeterDescriptionView.swift; sourceTree = "<group>"; };
+		8ABB193B281C39A40017B816 /* CustomComposableThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComposableThreeView.swift; sourceTree = "<group>"; };
 		8AC3FC9228198F150054EC25 /* CustomComposableTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComposableTwoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +160,7 @@
 				81331FB625E736AA00CFDB02 /* CustomComposableDescriptionView.swift */,
 				81331FBA25E736B600CFDB02 /* CustomComposableView.swift */,
 				8AC3FC9228198F150054EC25 /* CustomComposableTwoView.swift */,
+				8ABB193B281C39A40017B816 /* CustomComposableThreeView.swift */,
 			);
 			path = Assignment;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				81D2F45F25E57B0900ACF089 /* IAExampleThreeView.swift in Sources */,
 				81331FAF25E729D600CFDB02 /* EncouragementDescriptionView.swift in Sources */,
 				81331FB725E736AA00CFDB02 /* CustomComposableDescriptionView.swift in Sources */,
+				8ABB193C281C39A40017B816 /* CustomComposableThreeView.swift in Sources */,
 				0E8E8B0525E5442100012516 /* ImplicitAnimationsView.swift in Sources */,
 				81D2F46925E57FAE00ACF089 /* EAExampleOneView.swift in Sources */,
 				0E84E4F025E591F90052BC69 /* FontsView.swift in Sources */,
