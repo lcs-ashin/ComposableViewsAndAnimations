@@ -19,6 +19,10 @@ struct CustomComposableThreeView: View {
     // Controls the opacity of the text
     @State var textOpacity : CGFloat = 0.0
     
+    // Controls the opacity of the bolts
+    @State var boltOneOpacity : CGFloat = 0.0
+    @State var boltTwoOpacity : CGFloat = 0.0
+    
     // Timer
     let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
     
@@ -62,6 +66,44 @@ struct CustomComposableThreeView: View {
                         timer.upstream.connect().cancel()
                     }
             }
+            
+            // Bolt 1
+            Image(systemName: "bolt.fill")
+                .font(.system(size: 100))
+                .foregroundColor(.yellow)
+                .offset(x: -90, y: 35)
+                .opacity(boltOneOpacity)
+                .onReceive(timer) { input in
+                    withAnimation(
+                        Animation
+                            .default
+                            .repeatCount(3)
+                            .delay(2.5)
+                    ) {
+                        boltOneOpacity = 1.0
+                    }
+                    
+                    timer.upstream.connect().cancel()
+                }
+            
+            // Bolt 2
+            Image(systemName: "bolt.fill")
+                .font(.system(size: 75))
+                .foregroundColor(.yellow)
+                .offset(x: 100, y: 19)
+                .opacity(boltTwoOpacity)
+                .onReceive(timer) { input in
+                    withAnimation(
+                        Animation
+                            .default
+                            .repeatCount(3)
+                            .delay(2.6)
+                    ) {
+                        boltTwoOpacity = 1.0
+                    }
+                    
+                    timer.upstream.connect().cancel()
+                }
             
             // Try Again Text
             Text("Try Again")
