@@ -107,9 +107,7 @@ struct CustomComposableThreeView: View {
             
             // Try Again Text
             Text("Try Again")
-                .font(Font.system(size: 30))
-                .italic()
-                .bold()
+                .font(Font.custom("Arial-BoldItalicMT", size: 30))
                 .opacity(textOpacity)
                 .onReceive(timer) { input in
                     withAnimation(
