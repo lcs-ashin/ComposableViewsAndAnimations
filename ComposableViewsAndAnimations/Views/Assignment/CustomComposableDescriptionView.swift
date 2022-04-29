@@ -39,7 +39,11 @@ struct CustomComposableDescriptionView: View {
                     My Composable View 2:
                     This is a heart button animation that can be used in social media.
                     Tap a colour you want for the effect.
+                    
+                    My Composable View 3:
+                    This is an animation that can be used for a wrong answer or game over.
                     """)
+                    .font(.system(size: 15))
                 
                 HStack {
                     Spacer()
@@ -165,7 +169,7 @@ struct CustomComposableDescriptionView: View {
                 
                 NavigationLink(destination: CustomComposableThreeView()) {
                     SimpleListItemView(title: "My Composable View 3",
-                                       caption: ".....")
+                                       caption: "\"Try Again\" animation")
                 }
             }
             
